@@ -1,0 +1,201 @@
+.container {
+    position: relative;
+    height: 100vh;
+    background: radial-gradient(97.91% 60.14% at 50% 50%, #FFDB7E 0%, #FF7A00 100%);
+}
+
+.header {
+    position: relative;
+    width: 100%;
+    height: 123px;
+    z-index: 30;
+}
+
+.header>div {
+    padding-left: 118px;
+    width: 100%;
+    height: inherit;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    justify-content: space-between;
+    align-items: center;
+    gap: 139px;
+    background-image: url('../assets/images/Vector.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.listMenu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 890px;
+    gap: 112px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    width: 541px;
+    gap: 80px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+section {
+    position: relative;
+    z-index: 9;
+    width: 100%;
+    height: calc(100% - 140px);
+}
+
+section>div {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: -24%;
+    padding: 72px 68px 20px 68px;
+    box-sizing: border-box;
+    z-index: 9;
+    overflow: hidden;
+}
+
+.background {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #FFB648 0%, #FFB648 100%);
+    box-shadow: 0px 4px 27px rgba(180, 106, 38, 0.25);
+    border-radius: 0px 0px 36px 36px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    background-image: url('../assets/images/Group.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media screen and (min-width: 1900px) {
+    .header {
+        position: relative;
+        z-index: 30;
+        width: 100%;
+        height: 82.92px;
+    }
+
+    .header>div {
+        padding-left: 201px;
+        padding-right: 330.5px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        width: 100%;
+        height: 73px;
+        left: 0px;
+        top: 0px;
+        background-image: url('../assets/images/Vector.svg');
+        background-position: center;
+        background-repeat: no-repeat;
+
+        /* background: #ED7200;
+        box-shadow: 0px 2.70833px 23.6979px rgba(162, 58, 0, 0.75); */
+    }
+
+    .header>div>img {
+        /* position: absolute; */
+        width: 155.05px;
+        height: 61.61px;
+        left: 136.09px;
+        top: 0.68px;
+        background: url("../assets/images/Little\ &\ Little\ Logo.svg");
+        background-repeat: no-repeat;
+        background-size: contain;
+    }
+
+    .listMenu {
+        /* position: absolute; */
+        width: 891px;
+        height: 42px;
+        left: 703px;
+        top: 29px;
+    }
+
+    .menu {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 80px;
+        /* position: absolute; */
+        width: 570px;
+        height: 42px;
+        /* left: 703px;
+        top: 29px; */
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        gap: 8px;
+        /* position: absolute; */
+        width: 138px;
+        height: 32px;
+        /* left: 1456px;
+        top: 34px; */
+    }
+
+    .contact>img {
+        width: 32px;
+        height: 32px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+    }
+
+    .contact>p {
+        width: 98px;
+        height: 20px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        color: #FFFFFF;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+    }
+    section {
+        position: absolute;
+        top: 0;
+        z-index: 9;
+        width: 100%;
+        height: 100vh;
+    }
+    section>div{
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

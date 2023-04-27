@@ -1,0 +1,333 @@
+.container {
+    width: 100%;
+    height: 100%;
+    padding-left: 75px;
+    padding-right: 61px;
+    box-sizing: border-box;
+    z-index: 0;
+}
+
+.container>div {
+    height: 100%;
+    padding-top: 60px;
+    box-sizing: border-box;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.header>img {
+    width: 100px;
+}
+
+.header>div {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.header>div>p {
+    margin: 0;
+    font-family: 'iCiel Koni';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.lisa {
+    position: absolute;
+    left: 0px;
+    bottom: 17px;
+    z-index: 11;
+    height: 300px;
+    width: 252px;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    flex-direction: row;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+
+.listInfo {
+    width: 60%;
+    z-index: 10;
+    height: 100%;
+    background-image: url('../../assets/images/contentGroup.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.listInfo>p {
+    margin-left: 27px;
+    margin-right: 52px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 27px;
+    color: #23221F;
+}
+
+.listInfo>div {
+    margin-left: 70px;
+    margin-right: 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listInfo>div>div {
+    display: inline-flex;
+    gap: 10px;
+}
+
+.listInfo>div>div>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 36px;
+    color: #23221F;
+    opacity: 0.8;
+    margin: 0;
+}
+
+.join {
+    position: absolute;
+    left: 616px;
+    z-index: 10;
+    background-image: url('../../assets/images/join.svg');
+    width: 10%;
+    height: 97%;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.infoTicket {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    z-index: 9;
+    left: 663px;
+    width: 33%;
+    height: 100%;
+    padding-top: 60px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
+    background-image: url('../../assets/images/contentGroupTwo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    box-sizing: border-box;
+}
+
+.yourTicket {
+    position: absolute;
+    top: -11px;
+    left: 80px;
+    width: 200px;
+    height: 64px;
+    z-index: 10;
+    background-image: url('../../assets/images/yourTicket.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.infoTicket>.amountTicketAndDate {
+    position: relative;
+    width: 80%;
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 9px;
+}
+
+.infoTicket>input,
+.infoTicket>div>input,
+.infoTicket>div>div>input {
+    padding: 10px;
+    height: 30px;
+    box-sizing: border-box;
+    background: #FFFFFF;
+    box-shadow: inset -1px 3px 3px rgba(179, 91, 11, 0.5);
+    border-radius: 6px;
+    outline: none;
+    border: none;
+}
+
+.infoTicket>.amountTicketAndDate>.amountTicket {
+    width: 30%;
+}
+
+.infoTicket>div>.dateAndBtn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+.infoTicket>div>.dateAndBtn>.dateUse {
+    width: 84%;
+}
+
+.infoTicket>div>.dateAndBtn>.calendarBtn {
+    width: 30px;
+    height: 30px;
+    background-image: url('../../assets/images/calendarBtn.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 2px #DE9959);
+
+}
+
+.infoTicket>input {
+    width: 80%;
+}
+
+.btn {
+    width: 235px;
+    height: 50px;
+}
+
+.People {
+    width: 476px;
+    position: absolute;
+    top: 48px;
+    right: 140px;
+}
+
+.BalloonOne {
+    position: absolute;
+    top: 215px;
+    left: 10px;
+    width: 100px;
+}
+
+.BalloonTwo {
+    position: absolute;
+    top: 141px;
+    left: 445px;
+    width: 72px;
+}
+
+.BalloonThree {
+    position: absolute;
+    top: 120px;
+    left: 645px;
+    width: 72px;
+}
+
+.BalloonFour {
+    width: 140px;
+    position: absolute;
+    right: 0;
+    bottom: 150px;
+}
+
+.BalloonFive {
+    position: absolute;
+    left: 600px;
+}
+
+.BalloonTwoRight {
+    position: absolute;
+    right: 130px;
+    bottom: 2px;
+    width: 89px;
+}
+
+.selection {
+    height: 36px;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.selection>input {
+    width: 173%;
+}
+
+.selectBtn {
+    width: 56px;
+    background-image: url('../../assets/images/SelectorBtn.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    filter: drop-shadow(0px 3px 2px #DE9959);
+}
+
+@media screen and (min-width: 1900px) {
+    .header>img {
+        width: auto;
+    }
+
+    .content {
+        position: absolute;
+        width: 1520px;
+        height: 600px;
+        left: 201px;
+        top: 361px;
+    }
+
+    .listInfo {
+        width: 950px;
+        height: 600px;
+        position: absolute;
+        left: 0%;
+        right: 37.5%;
+        top: 0%;
+        bottom: 0%;
+    }
+
+    .join {
+        height: 583.7947998046875px;
+        width: 141.0412139892578px;
+        position: absolute;
+        left: 59.67%;
+        right: 31.05%;
+        top: 0%;
+        bottom: 2.7%;
+    }
+
+    .infoTicket {
+        height: 599.7492065429688px;
+        width: 539px;
+        position: absolute;
+        left: 64.47%;
+        right: 0.07%;
+        top: 0.04%;
+        bottom: 0%;
+    }
+
+    .yourTicket {
+        position: absolute;
+        width: 284px;
+        height: 80px;
+        left: 149px;
+        top: -2%;
+    }
+
+    .lisa {
+        position: absolute;
+        width: 488px;
+        height: 510px;
+        left: -88px;
+        bottom: 4%;
+    }
+}
