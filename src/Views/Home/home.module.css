@@ -96,7 +96,7 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 36px;
     color: #23221F;
     opacity: 0.8;
@@ -273,8 +273,21 @@
 }
 
 @media screen and (min-width: 1900px) {
+    .container>div {
+        padding-bottom: 70px;
+    }
+
     .header>img {
         width: auto;
+    }
+
+    .header>div {
+        gap: 50px;
+    }
+
+    .header>div>p {
+        height: fit-content;
+        font-size: 72px;
     }
 
     .content {
@@ -313,6 +326,7 @@
         right: 0.07%;
         top: 0.04%;
         bottom: 0%;
+        gap: 26px;
     }
 
     .yourTicket {
@@ -329,5 +343,143 @@
         height: 510px;
         left: -88px;
         bottom: 4%;
+    }
+
+    .listInfo {
+        padding-top: 35.45px;
+        padding-left: 55.8px;
+        padding-right: 39.8px;
+        box-sizing: border-box;
+    }
+
+    .listInfo>p {
+        /* position: absolute; */
+        left: 4.47%;
+        right: 40.92%;
+        top: 8%;
+        bottom: 67%;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 30px;
+        color: #23221F;
+        opacity: 0.7;
+    }
+
+    .listInfo>div>div>p {
+        width: 703px;
+        height: 36px;
+        font-family: 'Montserrat';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 36px;
+        color: #23221F;
+        opacity: 0.8;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+    }
+
+    .BalloonOne {
+        width: 147.37px;
+        height: 210px;
+        left: 18px;
+        top: 321px;
+    }
+
+    .BalloonTwo {
+        width: auto;
+        left: 42.03%;
+        right: 50.47%;
+        top: 16.58%;
+        bottom: 64.86%;
+    }
+
+    .BalloonThree {
+        width: auto;
+        left: 53.59%;
+        right: 40.31%;
+        top: 8.61%;
+        bottom: 75.63%;
+    }
+
+    .BalloonFour {
+        width: auto;
+        left: 91.67%;
+        right: -1.98%;
+        top: 34.15%;
+        bottom: 40.22%;
+    }
+
+    .BalloonTwoRight {
+        width: 166px;
+        height: 237px;
+        left: 88.18%;
+        right: 3.18%;
+        top: 74.82%;
+        bottom: 3.71%;
+    }
+
+    .BalloonFive {
+        height: 157px;
+        left: 32.81%;
+        right: 61.46%;
+        top: 84.78%;
+        bottom: 1%;
+    }
+
+    .People {
+        width: 788px;
+        height: 443px;
+        left: 1052px;
+        top: 23px;
+    }
+
+    .selection {
+        height: 66px;
+        width: 85%;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .infoTicket>.amountTicketAndDate {
+        /* position: relative; */
+        width: 85%;
+        height: 36px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 9px;
+    }
+
+    .infoTicket>input,
+    .infoTicket>div>input,
+    .infoTicket>div>div>input {
+        padding:20px 16px;
+        width: 467px;
+        height: 66px;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        box-shadow: inset -1px 3px 3px rgba(179, 91, 11, 0.5);
+        border-radius: 6px;
+        outline: none;
+        border: none;
+    }
+
+    .infoTicket>div>.dateAndBtn {
+        width: 70%;
+    }
+    .infoTicket>div>.dateAndBtn>.calendarBtn {
+        width: 47px;
+        height: 47px;
+    }
+
+    .btn {
+        width: 368px;
+        height: 68px;
     }
 }

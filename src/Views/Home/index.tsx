@@ -10,8 +10,20 @@ import BalloonThree from "../../assets/images/Hot_Air_Balloon_Three.svg";
 import BalloonFour from "../../assets/images/Hot_Air_Balloon_Four.svg";
 import BalloonFive from "../../assets/images/Hot_Air_Balloon_Five.svg";
 import { Button } from "../../components";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { updateValue } from "../../store/reducers/menuSlice";
 
 export const Home = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(updateValue({text: "Thanh toán", path: "/thanhtoan" }))
+    navigate('/thanhtoan')
+  }
+
   return (
     <div className={styles.container}>
       <div>
@@ -82,7 +94,10 @@ export const Home = () => {
             <input type="text" placeholder="Địa chỉ email" />
 
             <div className={styles.btn}>
-              <Button text="Đặt vé"/>
+              <Button 
+                text="Đặt vé"
+                handleClick={() => handleClick()}
+              />
             </div>
 
 

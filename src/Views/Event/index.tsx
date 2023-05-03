@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./event.module.css";
 import EventOne from '../../assets/images/event_one.svg';
+import { Button } from "../../components";
 
 export const Event = () => {
   return (
@@ -33,7 +34,7 @@ export const Event = () => {
                 <p className={styles.prize} >25.000 VNĐ</p>
 
                 <div className={styles.detailBtn}>
-                  <p>Xem chi tiết</p>
+                  <Button text="Xem chi tiết" handleClick={() => console.log('click')} />
                 </div>
               </div>
             </div>
@@ -53,7 +54,7 @@ export const Event = () => {
                 <p className={styles.prize} >25.000 VNĐ</p>
 
                 <div className={styles.detailBtn}>
-                  <p>Xem chi tiết</p>
+                  <Button text="Xem chi tiết" handleClick={() => console.log('click')} />
                 </div>
               </div>
             </div>
@@ -73,7 +74,7 @@ export const Event = () => {
                 <p className={styles.prize} >25.000 VNĐ</p>
 
                 <div className={styles.detailBtn}>
-                  <p>Xem chi tiết</p>
+                  <Button text="Xem chi tiết" handleClick={() => console.log('click')} />
                 </div>
               </div>
             </div>
@@ -93,10 +94,11 @@ export const Event = () => {
                 <p className={styles.prize} >25.000 VNĐ</p>
 
                 <div className={styles.detailBtn}>
-                  <p>Xem chi tiết</p>
+                  <Button text="Xem chi tiết" handleClick={() => console.log('click')} />
                 </div>
               </div>
             </div>
+
           </div>
 
           <div className={styles.nextBtn} > </div>

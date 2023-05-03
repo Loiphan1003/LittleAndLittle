@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import Logo from '../assets/images/Little & Little Logo.svg'
 import PhoneIcon from '../assets/images/PhoneIcon.svg'
 import styles from './mainLayout.module.css';
 import { Tag } from '../components';
 import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { RootState } from '../store';
+import { updateValue } from '../store/reducers/menuSlice';
 
 type MainLayoutProps = {
     children: React.ReactNode
@@ -27,14 +30,16 @@ const menu = [
 export const MainLayout = (props: MainLayoutProps) => {
 
     const navigate = useNavigate()
-    const [selectMenu, setSelectMenu] = useState<string | null>(null)
+    const dispatch = useDispatch()
+
+    const menuState = useSelector((state: RootState) => state.menu.value);
 
     useEffect(() => {
-        setSelectMenu('Trang chủ')
-    }, [])
+        navigate(menuState.path)
+    }, [menuState, navigate])
 
     const handleClick = (text: string, path: string) => {
-        setSelectMenu(text);
+        dispatch(updateValue({text, path}))
         navigate(path);
     }
 
@@ -51,7 +56,7 @@ export const MainLayout = (props: MainLayoutProps) => {
                                 <Tag
                                     key={item.text}
                                     text={item.text}
-                                    isActive={selectMenu}
+                                    isActive={menuState.text}
                                     handleClick={() => handleClick(item.text, item.path)}
                                 />
                             ))}

@@ -103,6 +103,7 @@ section>div {
     .header>div {
         padding-left: 201px;
         padding-right: 330.5px;
+        box-sizing: border-box;
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -114,9 +115,7 @@ section>div {
         background-image: url('../assets/images/Vector.svg');
         background-position: center;
         background-repeat: no-repeat;
-
-        /* background: #ED7200;
-        box-shadow: 0px 2.70833px 23.6979px rgba(162, 58, 0, 0.75); */
+        box-shadow: 0px 4px 35px rgba(162, 58, 0, 0.75);
     }
 
     .header>div>img {

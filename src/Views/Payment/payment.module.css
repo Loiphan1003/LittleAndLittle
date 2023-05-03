@@ -1,0 +1,240 @@
+.paymentContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    padding-left: 126px;
+    padding-right: 138px;
+    box-sizing: border-box;
+}
+
+.paymentContainer>div {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    display: flex;
+    flex-direction: row;
+    /* background-color: red; */
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    width: 524px;
+    height: 100px;
+    font-family: 'iCiel Koni';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 46px;
+    line-height: 100px;
+    color: #FFFFFF;
+}
+
+.paymentContainer>div>.listInfo {
+    width: 600px;
+    height: 100%;
+    background-image: url('../../assets/images/contentGroup.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    padding-top: 50px;
+    padding-left: 70px;
+    padding-right: 70px;
+    box-sizing: border-box;
+}
+
+.listInfo>.listInfoHeader {
+    position: absolute;
+    top: -13px;
+    left: 70px;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 28px;
+    padding-right: 27px;
+    padding-bottom: 28px;
+    background-image: url('../../assets/images/header.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.listInfoHeader>p {
+    font-family: 'iCiel Koni';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 41px;
+    color: #FFFFFF;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.paymentContainer>div>.join {
+    position: absolute;
+    left: 575px;
+    height: 91%;
+    width: 20%;
+    background-image: url('../../assets/images/join.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.paymentContainer>div>.infoTicket {
+    position: absolute;
+    left: 620px;
+    height: 100%;
+    width: 343px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 49.02px;
+    padding-left: 27px;
+    padding-right: 27px;
+    padding-bottom: 50px;
+    box-sizing: border-box;
+    background-image: url('../../assets/images/contentGroupTwo.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.infoTicket>.header {
+    position: absolute;
+    top: -13px;
+    left: 36px;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 28px;
+    padding-right: 27px;
+    padding-bottom: 28px;
+    background-image: url('../../assets/images/header.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.infoTicket>.header>p {
+    font-family: 'iCiel Koni';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 41px;
+    color: #FFFFFF;
+    margin: 0;
+    text-transform: uppercase;
+}
+.infoTicket > .inputframe {
+    width: 100%;
+}
+
+.btn {
+    margin-top: 10px;
+    width: 260px;
+    height: 45px;
+}
+
+.trini {
+    position: absolute;
+    width: 300px;
+    left: -58px;
+    bottom: 5%;
+}
+
+.listInfo>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputCalendar > label,
+.inputCVVorCVC > label,
+.input > label,
+.label {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 30px;
+    color: #23221F;
+}
+
+.firstRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+.firstRow>div>div {
+    height: 30px;
+    margin-top: 5px;
+}
+
+.firstRowInput {
+    width: 45%;
+}
+
+.aumoutTicket {
+    width: 25%;
+}
+
+.aumoutTicket>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.aumoutTicket>div>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 26px;
+    color: #23221F;
+}
+
+.date {
+    width: 25%;
+}
+
+.email,
+.name {
+    width: 60%;
+}
+
+.input> div,
+.email>div,
+.phoneNumber>div,
+.name>div {
+    margin-top: 5px;
+    height: 30px;
+}
+
+.phoneNumber {
+    width: 45%;
+}
+.calendarBtn{
+    width: 35px;
+    height: 100%;
+    background-image: url('../../assets/images/calendarBtn.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+}
+
+.inputCalendar > div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 30px;
+
+}
+
+.inputCVVorCVC > div {
+    width: 70px;
+    height: 30px;
+}

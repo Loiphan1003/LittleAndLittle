@@ -132,7 +132,7 @@
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 14px;
     line-height: 16px;
     color: #444444;
 }
@@ -150,13 +150,13 @@
 .detailBtn {
     width: 200px;
     height: 40px;
-    filter: drop-shadow(0px 4px 8px rgba(165, 15, 15, 0.45));
+    /* filter: drop-shadow(0px 4px 8px rgba(165, 15, 15, 0.45));
     background-color: #FF000A;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer; */
 }
 
 .detailBtn>p {
