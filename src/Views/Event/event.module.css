@@ -35,6 +35,7 @@
 }
 
 .slide {
+    width: 100%;
     display: flex;
     flex-direction: row;
     height: fit-content;
@@ -67,6 +68,7 @@
 }
 
 .list {
+    width: 85%;
     display: flex;
     flex-direction: row;
     gap: 28px;
@@ -201,4 +203,10 @@
     background-image: url('../../assets//images//eventDecoRight.svg');
     transform: rotate(9.58deg);
     z-index: 11;
+}
+
+.sliderList{
+    width: 100%;
+    height: 100%;
+    z-index: 20;
 }

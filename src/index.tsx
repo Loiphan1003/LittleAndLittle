@@ -5,7 +5,7 @@ import './index.css';
 // import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { MainLayout } from './layout/MainLayout';
-import { Home, Event, Contact, Payment } from './Views';
+import { Home, Event, Contact, Payment, DetailEvent, Ticket } from './Views';
 import store from './store';
 import { Provider } from 'react-redux';
 
@@ -26,6 +26,14 @@ const router = createBrowserRouter([
   {
     path: '/thanhtoan',
     element: <MainLayout><Payment /></MainLayout>
+  },
+  {
+    path: '/chitiet',
+    element: <MainLayout><DetailEvent /></MainLayout>
+  },
+  {
+    path: '/thanhtoanthanhcong',
+    element: <MainLayout><Ticket/></MainLayout>
   }
 ])
 

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { menuType } from "../../types/menuType";
+import { menuType } from "../../types";
 
 type MenuState = {
     value: menuType

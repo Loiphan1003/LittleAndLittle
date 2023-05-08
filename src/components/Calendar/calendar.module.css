@@ -1,0 +1,79 @@
+.calendar {
+    top: 200px;
+    right: 270px;
+    position: absolute;
+    z-index: 11;
+    width: fit-content;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    height: fit-content;
+    background-color: white;
+    /* color: black; */
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.header > p{
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    color: black;
+}
+
+.weekdays{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.days{
+    display: grid;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    grid-template-rows: auto auto auto auto auto;
+}
+.days > .day {
+    width: fit-content;
+    height: fit-content;
+    cursor: pointer;
+    color: black;
+}
+
+.day:hover{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #FF8A00;
+    border-radius: 50%;
+}
+
+.active {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background: #FF8A00;
+    border-radius: 50%;
+}
+
+.days > .day > p{
+    margin: 0;
+    color: black;
+}
+
+.day:hover > p,
+.active > p{
+    color: white;
+}

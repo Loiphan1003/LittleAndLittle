@@ -1,0 +1,182 @@
+.ticketContainer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-top: 32px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ticketContainer> .group {
+    width: 80%;
+    height: 65%;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: #FDE8B3;
+    border-radius: 20px;
+    box-shadow: 0px 12px 1px #FFCA7B;
+    /* background-image: url('../../assets/images/khungChua.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between; */
+}
+
+.group > .border {
+    border: dashed #FFB489;
+    background-color: #FFF6D4;
+    border-radius: 20px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    height: 99%;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.previousBtn {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image: url('../../assets/images/previous\ btn.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.content{
+    padding-top: 5px;
+    box-sizing: border-box;
+    width: 90%;
+    height: 100%;
+}
+
+.listTicket{
+    width: 100%;
+    height: 90%;
+}
+
+.amountTicket {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.amountTicket > p {
+    margin: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 30px;
+    color: #23221F;
+    margin-bottom: 11px;
+    margin-top: 6px;
+}
+
+.cardTicket {
+
+    text-align: center;
+
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    /* width: 200px;
+    height: 275px; */
+    border-radius: 16px;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+}
+
+.cardTicket p {
+    margin: 0;
+    font-family: 'Montserrat';
+    font-style: normal;
+}
+
+.cardTicket>h3 {
+    margin: 12px 0px;
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 39px;
+}
+
+.typeTicket {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 29px;
+    color: #FFC226;
+}
+
+.line {
+    color: black;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 29px;
+}
+
+.date {
+    color: black;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 26px;
+}
+
+.tick {
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    margin-top: 10px;
+    background-image: url('../../assets/images/tick.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+
+.nextBtn {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    background-image: url('../../assets/images/next\ btn.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.btn{
+    display: flex;
+    gap: 20px;
+    margin-top: 26px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.btn > div {
+    height: 40px;
+    width: 160px;
+}
+
+
+
+.alvin {
+    width: 226px;
+    position: absolute;
+    top: 150px;
+    left: -68px;
+}
+
+.slider{
+    width: 100%;
+    height: 100%;
+}
