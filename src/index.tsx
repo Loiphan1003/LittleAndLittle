@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     element: <MainLayout><Payment /></MainLayout>
   },
   {
-    path: '/chitiet',
+    path: '/chitiet/:id',
     element: <MainLayout><DetailEvent /></MainLayout>
   },
   {

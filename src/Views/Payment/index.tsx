@@ -1,18 +1,24 @@
 import { useCallback, useEffect, useState } from 'react';
 import styles from './payment.module.css';
 import Trini from '../../assets/images/Trini_Arnold_Votay1 2.svg';
-import { Button, Input } from '../../components';
-import { useDispatch } from 'react-redux';
-import { updateValue } from '../../store/reducers/menuSlice';
-import { TicketType } from '../../types';
+import { Button, Input, InputChange } from '../../components';
+// import { useDispatch } from 'react-redux';
+// import { updateValue } from '../../store/reducers/menuSlice';
+import { TicketType, TypeTicket, PaymentInfo } from '../../types';
 import { getDataInLocalStorage } from '../../utils';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 export const Payment = () => {
 
-    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    // const dispatch = useDispatch();
+
+    const typeTicketState = useSelector((state: RootState): TypeTicket[] => state.ticket.typeTickets)
 
     const [ticket, setTicket] = useState<TicketType>({
         type: "",
@@ -22,27 +28,53 @@ export const Payment = () => {
         phone: 0,
         email: "",
     })
+    const [paymentInfo, setPaymentInfo] = useState<PaymentInfo>({
+        cardNumber: 0,
+        name: "",
+        dateExpire: "",
+        cvv: ""
+    })
 
     const handleGetDataInLocalStorage = () => {
         const dataInLocalStorage = getDataInLocalStorage('ticketInfo');
-        console.log(dataInLocalStorage);
-        
-        if(dataInLocalStorage !== undefined){
+        if (dataInLocalStorage !== undefined) {
             return setTicket(dataInLocalStorage);
         }
-        else{
-            return dispatch(updateValue({text: "Trang chủ", path: '/'}))
+        else {
+            // return dispatch(updateValue({ text: "Trang chủ", path: '/' }))
+            return navigate('/');
         }
     }
 
+    const calThePaymentAmount = useCallback((type: string) => {
+        let amountPay: number = 0;
+        typeTicketState.map((item) => {
+            if (item.name === type) {
+                return amountPay = ticket.amount * item.price;
+            }
+        })
+
+        return amountPay.toLocaleString('vi-VN');
+    }, [ticket.amount, typeTicketState])
+
+
+    const handleChangePaymenInfo = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setPaymentInfo((prevState) => ({
+            ...prevState,
+            [name]: value
+        }))
+    }
 
     useEffect((): any => {
-        handleGetDataInLocalStorage()    
+        handleGetDataInLocalStorage()
     }, [])
 
     const handleClick = () => {
-        localStorage.removeItem('ticketInfo')
-        dispatch(updateValue({ text: 'Thanh Toán Thành Công', path: '/thanhtoanthanhcong' }))
+        // console.log(paymentInfo);
+        
+        // localStorage.removeItem('ticketInfo')
+        navigate('/thanhtoanthanhcong')
     }
 
     return (
@@ -51,7 +83,7 @@ export const Payment = () => {
             <div>
                 <div className={styles.listInfo}>
                     <div className={styles.listInfoHeader} >
-                        <p>Vé cổng - Vé gia đình</p>
+                        <p>Vé cổng - {ticket.type}</p>
                     </div>
 
                     <div>
@@ -59,9 +91,9 @@ export const Payment = () => {
                             <div className={styles.firstRowInput} >
                                 <label className={styles.label} >Số tiền thanh toán</label>
                                 <div>
-                                    <Input 
-                                        type='text' 
-                                        value='0'
+                                    <Input
+                                        type='text'
+                                        value={`${calThePaymentAmount(ticket.type)} VNĐ`}
                                     />
                                 </div>
                             </div>
@@ -69,8 +101,8 @@ export const Payment = () => {
                             <div className={styles.aumoutTicket} >
                                 <label className={styles.label} >Số lượng vé</label>
                                 <div>
-                                    <Input 
-                                        type='text' 
+                                    <Input
+                                        type='text'
                                         value={ticket.amount.toString()}
                                     />
                                     <p>Vé</p>
@@ -80,8 +112,8 @@ export const Payment = () => {
                             <div className={styles.date} >
                                 <label className={styles.label} >Ngày sử dụng</label>
                                 <div>
-                                    <Input 
-                                        type='text' 
+                                    <Input
+                                        type='text'
                                         value={ticket.date}
                                     />
                                 </div>
@@ -91,8 +123,8 @@ export const Payment = () => {
                         <div className={styles.name} >
                             <label className={styles.label} >Thông tin liên hệ</label>
                             <div>
-                                <Input 
-                                    type='text' 
+                                <Input
+                                    type='text'
                                     value={ticket.name}
                                 />
                             </div>
@@ -101,8 +133,8 @@ export const Payment = () => {
                         <div className={styles.phoneNumber} >
                             <label className={styles.label} >Điện thoại</label>
                             <div>
-                                <Input 
-                                    type='text' 
+                                <Input
+                                    type='text'
                                     value={ticket.phone.toString()}
                                 />
                             </div>
@@ -111,8 +143,8 @@ export const Payment = () => {
                         <div className={styles.email} >
                             <label className={styles.label} >Email</label>
                             <div>
-                                <Input 
-                                    type='text' 
+                                <Input
+                                    type='text'
                                     value={ticket.email}
                                 />
                             </div>
@@ -132,9 +164,11 @@ export const Payment = () => {
                         <div className={styles.input} >
                             <label htmlFor="">Số thẻ</label>
                             <div>
-                                <Input 
-                                    type='text' 
-                                    value=''
+                                <InputChange
+                                    name='cardNumber'
+                                    type='text'
+                                    value={paymentInfo.cardNumber.toString()}
+                                    onChange={(e) => handleChangePaymenInfo(e)}
                                 />
                             </div>
                         </div>
@@ -142,9 +176,11 @@ export const Payment = () => {
                         <div className={styles.input} >
                             <label htmlFor="">Họ tên chủ thẻ</label>
                             <div>
-                                <Input 
-                                    type='text' 
-                                    value=''
+                                <InputChange
+                                    name='name'
+                                    type='text'
+                                    value={paymentInfo.name}
+                                    onChange={(e) => handleChangePaymenInfo(e)}
                                 />
                             </div>
                         </div>
@@ -152,9 +188,11 @@ export const Payment = () => {
                         <div className={styles.inputCalendar} >
                             <label htmlFor="">Ngày hết hạn</label>
                             <div>
-                                <Input 
-                                    type='text' 
-                                    value=''
+                                <InputChange
+                                    name='dateExpire'
+                                    type='text'
+                                    value={paymentInfo.dateExpire}
+                                    onChange={(e) => handleChangePaymenInfo(e)}
                                 />
                                 <div className={styles.calendarBtn} ></div>
                             </div>
@@ -163,9 +201,11 @@ export const Payment = () => {
                         <div className={styles.inputCVVorCVC} >
                             <label htmlFor="">CVV/CVC</label>
                             <div>
-                                <Input 
+                                <InputChange
+                                    name='cvv'
                                     type='password'
-                                    value=''
+                                    value={paymentInfo.cvv}
+                                    onChange={(e) => handleChangePaymenInfo(e)}
                                 />
                             </div>
                         </div>

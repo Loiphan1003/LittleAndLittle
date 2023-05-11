@@ -9,7 +9,7 @@ import BalloonTwo from "../../assets/images/Hot_Air_Balloon_Two.svg";
 import BalloonThree from "../../assets/images/Hot_Air_Balloon_Three.svg";
 import BalloonFour from "../../assets/images/Hot_Air_Balloon_Four.svg";
 import BalloonFive from "../../assets/images/Hot_Air_Balloon_Five.svg";
-import { Button, Calendar } from "../../components";
+import { Button, Calendar, Dropdown } from "../../components";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { updateValue } from "../../store/reducers/menuSlice";
@@ -30,15 +30,16 @@ export const Home = () => {
     phone: 0,
     email: "",
   });
-
+  const [openDropdownTicket, setOpenDropdownTicket] = useState<boolean>(false);
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 
   const handleClick = () => {
-    if(ticket.amount !== 0 && ticket.date !== "" && ticket.email !== "" && ticket.name !== "" && ticket.phone !== 0 
-    // && ticket.type !== ''
-    ){
+    if (ticket.amount !== 0 && ticket.date !== "" && ticket.email !== "" && ticket.name !== "" && ticket.phone !== 0
+      && ticket.type !== ''
+    ) {
       saveDataInLocalStorage('ticketInfo', ticket)
-      dispatch(updateValue({ text: "Thanh toán", path: "/thanhtoan" }))
+      // dispatch(updateValue({ text: "Thanh toán", path: "/thanhtoan" }))
+      navigate('/thanhtoan')
       return;
     }
     return;
@@ -100,11 +101,14 @@ export const Home = () => {
                 <input
                   disabled
                   type="text"
-                  placeholder=" "
-                  value={"Gói gia đình"}
+                  placeholder="Loại vé"
+                  value={ticket.type}
+                  readOnly
                 />
 
-                <div className={styles.selectBtn}></div>
+                <div className={styles.selectBtn}
+                  onClick={() => setOpenDropdownTicket(!openDropdownTicket)}
+                />
               </div>
 
               <div className={styles.amountTicketAndDate}>
@@ -161,7 +165,6 @@ export const Home = () => {
                 />
               </div>
 
-
               <div className={styles.yourTicket}></div>
             </div>
 
@@ -178,6 +181,18 @@ export const Home = () => {
         <img src={People} alt="people" className={styles.People} />
         <img src={Lisa} alt="lisa" className={styles.lisa} />
       </div>
+
+
+      <Dropdown
+        isActive={openDropdownTicket}
+        onClick={(item) => {
+          setOpenDropdownTicket(false)
+          setTicket((prevState) => ({
+            ...prevState,
+            type: item.name
+          }))
+        }}
+      />
 
       {openCalendar && <Calendar onclick={(date) => {
         const dateUse = `${date.day}/${date.month}/${date.year}`;

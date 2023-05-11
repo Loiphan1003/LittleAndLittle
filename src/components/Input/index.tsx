@@ -5,11 +5,13 @@ type InputProps = {
     value: string,
 }
 
-export const Input = ( props: InputProps ) => {
+export const Input = (props: InputProps) => {
+
     return (
-        <input 
-            className={props.type === "text" ? styles.button : styles.password} 
+        <input
+            className={props.type === "text" ? styles.button : styles.password}
             value={props.value}
+            readOnly={true}
         />
     )
 }

@@ -1,12 +1,15 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import Logo from '../assets/images/Little & Little Logo.svg'
 import PhoneIcon from '../assets/images/PhoneIcon.svg'
 import styles from './mainLayout.module.css';
 import { Tag } from '../components';
-import { useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store';
-import { updateValue } from '../store/reducers/menuSlice';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+// import { RootState } from '../store';
+// import { updateValue } from '../store/reducers/menuSlice';
+import { getAllEvents } from '../store/reducers/eventSlice';
+import { getAllTypeTicket } from '../store/reducers/ticketSlice';
+
 
 type MainLayoutProps = {
     children: React.ReactNode
@@ -30,17 +33,39 @@ const menu = [
 export const MainLayout = (props: MainLayoutProps) => {
 
     const navigate = useNavigate()
-    const dispatch = useDispatch()
+    const dispatch = useDispatch<any>()
 
-    const menuState = useSelector((state: RootState) => state.menu.value);
+    // const menuState = useSelector((state: RootState) => state.menu.value);
+
+    const location = useLocation();
+    const [isActive, setIsActive] = useState<string>("Trang chủ");
+
+    const checkURL = useCallback((pathname: string) => {
+        if(pathname === '/'){
+            setIsActive("Trang chủ");
+        }
+        if(pathname === "/sukien"){
+            setIsActive("Sự kiện")
+        }
+        if(pathname === "/lienhe"){
+            setIsActive("Liên hệ")
+        }
+    }, [])
 
     useEffect(() => {
-        navigate(menuState.path)
-    }, [menuState, navigate])
+        dispatch(getAllEvents())
+        dispatch(getAllTypeTicket());
+    }, [dispatch])
+
+    useEffect(() => {
+        checkURL(location.pathname)
+    }, [checkURL, location.pathname])
 
     const handleClick = (text: string, path: string) => {
-        dispatch(updateValue({text, path}))
+        // dispatch(updateValue({text, path}))
+        setIsActive(text);
         navigate(path);
+        
     }
 
     return (
@@ -56,7 +81,8 @@ export const MainLayout = (props: MainLayoutProps) => {
                                 <Tag
                                     key={item.text}
                                     text={item.text}
-                                    isActive={menuState.text}
+                                    // isActive={menuState.text}
+                                    isActive={isActive}
                                     handleClick={() => handleClick(item.text, item.path)}
                                 />
                             ))}

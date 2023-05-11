@@ -1,0 +1,50 @@
+@keyframes popup {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.dropdownContainer{
+    position: absolute;
+    width: 250px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 10px;
+    right: 20%;
+    top: 49%;
+    display: flex;
+    flex-direction: column;
+    animation: popup 0.3s ease-out;
+}
+
+.dropdownContainer > div {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.dropdownContainer > div:hover {
+    cursor: pointer;
+    background-color: gray;
+    opacity: 0.5;
+}
+
+.dropdownContainer > div:first-child {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.dropdownContainer > div:last-child {
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.noActive{
+    display: none;
+}
