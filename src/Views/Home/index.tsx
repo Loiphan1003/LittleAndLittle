@@ -11,8 +11,6 @@ import BalloonFour from "../../assets/images/Hot_Air_Balloon_Four.svg";
 import BalloonFive from "../../assets/images/Hot_Air_Balloon_Five.svg";
 import { Button, Calendar, Dropdown } from "../../components";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { updateValue } from "../../store/reducers/menuSlice";
 import { TicketType } from "../../types";
 import { saveDataInLocalStorage } from "../../utils";
 
@@ -20,12 +18,11 @@ import { saveDataInLocalStorage } from "../../utils";
 export const Home = () => {
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   const [ticket, setTicket] = useState<TicketType>({
-    type: "",
-    amount: 0,
-    date: "",
+    kindTicket: "",
+    amountTicket: 0,
+    dateUse: "",
     name: "",
     phone: 0,
     email: "",
@@ -34,11 +31,10 @@ export const Home = () => {
   const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 
   const handleClick = () => {
-    if (ticket.amount !== 0 && ticket.date !== "" && ticket.email !== "" && ticket.name !== "" && ticket.phone !== 0
-      && ticket.type !== ''
+    if (ticket.amountTicket !== 0 && ticket.dateUse !== "" && ticket.email !== "" && ticket.name !== "" && ticket.phone !== 0
+      && ticket.kindTicket !== ''
     ) {
       saveDataInLocalStorage('ticketInfo', ticket)
-      // dispatch(updateValue({ text: "Thanh toán", path: "/thanhtoan" }))
       navigate('/thanhtoan')
       return;
     }
@@ -102,7 +98,8 @@ export const Home = () => {
                   disabled
                   type="text"
                   placeholder="Loại vé"
-                  value={ticket.type}
+                  name="kindTicket"
+                  value={ticket.kindTicket}
                   readOnly
                 />
 
@@ -117,7 +114,7 @@ export const Home = () => {
                   className={styles.amountTicket}
                   type="text"
                   placeholder="Số lượng vé"
-                  name="amount"
+                  name="amountTicket"
                   onChange={handleChange}
                 />
 
@@ -126,7 +123,7 @@ export const Home = () => {
                     className={styles.dateUse}
                     type="text"
                     placeholder="Ngày sử dụng"
-                    value={ticket.date}
+                    value={ticket.dateUse}
                     readOnly
                   />
 
@@ -189,19 +186,22 @@ export const Home = () => {
           setOpenDropdownTicket(false)
           setTicket((prevState) => ({
             ...prevState,
-            type: item.name
+            kindTicket: item.name
           }))
         }}
       />
 
-      {openCalendar && <Calendar onclick={(date) => {
-        const dateUse = `${date.day}/${date.month}/${date.year}`;
-        setTicket((prevState) => ({
-          ...prevState,
-          date: dateUse
-        }))
-        setOpenCalendar(!openCalendar);
-      }} />}
+      <Calendar
+        isActive={openCalendar}
+        onclick={(date) => {
+          const dateUse = `${date.day}/${date.month}/${date.year}`;
+          setTicket((prevState) => ({
+            ...prevState,
+            dateUse: dateUse
+          }))
+          setOpenCalendar(!openCalendar);
+        }} 
+      />
 
 
     </>

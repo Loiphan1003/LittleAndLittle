@@ -3,6 +3,7 @@ import styles from './calendar.module.css';
 import { DateType } from '../../types';
 
 type CalendarProps = {
+    isActive: boolean,
     onclick: (date: DateType) => void
 }
 
@@ -18,7 +19,6 @@ const getDaysInMonth = (year: number, month: number) => {
     for (let index = 1; index <= daysInMonth; index++) {
         const day = new Date(year, month, index);
         days.push({day: day.getDate(),month: month + 1, year } as DateType)
-        // days.push(new Date(year, month, index))
     }
 
     const firstDayOfMonth = getFirstDayOfMonth(month, year);
@@ -29,7 +29,6 @@ const getDaysInMonth = (year: number, month: number) => {
     for (let i = previousMonthLastDay - previousMonthDaysCount ; i <= previousMonthLastDay; i++) {
         const day = new Date(year, month, i);
         previousMonthDays.push({day: day.getDate(), month: month + 1, year} as DateType);
-        // previousMonthDays.push(new Date(year, month , i));
     }
     const displayedDays = [...previousMonthDays, ...days].slice(0, 35);
     return displayedDays;
@@ -38,15 +37,13 @@ const getDaysInMonth = (year: number, month: number) => {
 export const Calendar = (props: CalendarProps) => {
 
     const [currentDate, setCurrentDate] = useState(new Date());
-    const [selectDay, setSelectDay] = useState(currentDate.getDay());
-
+    const [selectDay, setSelectDay] = useState<DateType>({
+        day: currentDate.getDate(),
+        month: currentDate.getMonth() + 1,
+        year: currentDate.getFullYear()
+    });
 
     const daysInMonth = getDaysInMonth(currentDate.getFullYear(), currentDate.getMonth() );
-
-
-    // const handleClick = (day: number) => {
-    //     setSelectDay(day);
-    // }
 
     const handlePrevMonthClick = () => {
         setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
@@ -60,10 +57,8 @@ export const Calendar = (props: CalendarProps) => {
     };
 
 
-
-    
     return (
-        <div className={styles.calendar} >
+        <div className={props.isActive ? styles.calendar : styles.calendarNone} >
             <div className={styles.header} >
                 <p
                     onClick={() => handlePrevMonthClick()}
@@ -87,7 +82,7 @@ export const Calendar = (props: CalendarProps) => {
                     return (
                         <div
                             key={index}
-                            className={selectDay === item.day ? styles.active : styles.day}
+                            className={ selectDay.day === item.day && selectDay.month === item.month && selectDay.year === item.year ? styles.active : styles.day}
                             onClick={() => props.onclick(item)}
                         >
                             <p>

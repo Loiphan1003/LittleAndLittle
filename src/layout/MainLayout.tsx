@@ -5,8 +5,6 @@ import styles from './mainLayout.module.css';
 import { Tag } from '../components';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-// import { RootState } from '../store';
-// import { updateValue } from '../store/reducers/menuSlice';
 import { getAllEvents } from '../store/reducers/eventSlice';
 import { getAllTypeTicket } from '../store/reducers/ticketSlice';
 
@@ -35,37 +33,34 @@ export const MainLayout = (props: MainLayoutProps) => {
     const navigate = useNavigate()
     const dispatch = useDispatch<any>()
 
-    // const menuState = useSelector((state: RootState) => state.menu.value);
-
     const location = useLocation();
     const [isActive, setIsActive] = useState<string>("Trang chủ");
 
     const checkURL = useCallback((pathname: string) => {
-        if(pathname === '/'){
+        if (pathname === '/') {
             setIsActive("Trang chủ");
         }
-        if(pathname === "/sukien"){
+        if (pathname === "/sukien") {
             setIsActive("Sự kiện")
         }
-        if(pathname === "/lienhe"){
+        if (pathname === "/lienhe") {
             setIsActive("Liên hệ")
+        }
+        else if(pathname !== "/" && pathname !== "/sukien" && pathname !== "/lienhe"){
+            setIsActive('/')
         }
     }, [])
 
     useEffect(() => {
         dispatch(getAllEvents())
         dispatch(getAllTypeTicket());
-    }, [dispatch])
-
-    useEffect(() => {
         checkURL(location.pathname)
-    }, [checkURL, location.pathname])
 
+    }, [dispatch, checkURL, location.pathname])
+    
     const handleClick = (text: string, path: string) => {
-        // dispatch(updateValue({text, path}))
         setIsActive(text);
         navigate(path);
-        
     }
 
     return (
@@ -81,7 +76,6 @@ export const MainLayout = (props: MainLayoutProps) => {
                                 <Tag
                                     key={item.text}
                                     text={item.text}
-                                    // isActive={menuState.text}
                                     isActive={isActive}
                                     handleClick={() => handleClick(item.text, item.path)}
                                 />
@@ -96,7 +90,7 @@ export const MainLayout = (props: MainLayoutProps) => {
 
                 </div>
             </header>
-            
+
             <section>
                 <div>
                     <div className={styles.background}>

@@ -119,7 +119,6 @@ section>div {
     }
 
     .header>div>img {
-        /* position: absolute; */
         width: 155.05px;
         height: 61.61px;
         left: 136.09px;
@@ -130,7 +129,6 @@ section>div {
     }
 
     .listMenu {
-        /* position: absolute; */
         width: 891px;
         height: 42px;
         left: 703px;
@@ -143,11 +141,8 @@ section>div {
         align-items: flex-start;
         padding: 0px;
         gap: 80px;
-        /* position: absolute; */
         width: 570px;
         height: 42px;
-        /* left: 703px;
-        top: 29px; */
     }
 
     .contact {
@@ -157,11 +152,8 @@ section>div {
         align-items: center;
         padding: 0px;
         gap: 8px;
-        /* position: absolute; */
         width: 138px;
         height: 32px;
-        /* left: 1456px;
-        top: 34px; */
     }
 
     .contact>img {

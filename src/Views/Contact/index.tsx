@@ -7,6 +7,8 @@ import Phone from '../../assets/images/Phone.svg';
 import { postFeedback } from '../../apis';
 import { ContactType } from '../../types';
 import { notification } from 'antd';
+import { addDataInColection } from '../../config/firebase/firestore';
+import { db } from '../../config/firebase';
 import type { NotificationPlacement } from 'antd/es/notification/interface';
 import { PopupFalse } from '../../components';
 
@@ -52,27 +54,28 @@ export const Contact = () => {
       }
     );
   }
+  
+  const sendCantactToFirestorage = async (data: ContactType) => {
+    const result = await addDataInColection(db, 'feedbacks', data)
+    return result as { status: boolean, message: string }
 
+  }
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (form.address !== "" && form.email !== "" && form.message !== "" && form.name !== "" && form.phone !== 0) {
-      postFeedback(form)
-        .then(result => {
-          // console.log(result);
-          if (result.status) {
-            openNotification('topRight');
-            return setForm({
-              address: "",
-              message: "",
-              name: "",
-              phone: 0,
-              email: "",
-            })
-          } else {
-            setIsError(true)
-            return false;
-          }
+      if ((await (sendCantactToFirestorage(form))).status) {
+        openNotification('topRight');
+        return setForm({
+          address: "",
+          message: "",
+          name: "",
+          phone: 0,
+          email: "",
         })
+      } else {
+        setIsError(true)
+        return false;
+      }
     }
     else {
       return console.log('err');

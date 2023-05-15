@@ -5,3 +5,5 @@ export * from './Calendar'
 export * from './Popupfalse';
 export * from './Dropdown';
 export * from './InputChange';
+export * from './Backdrop';
+export * from './QRCode';

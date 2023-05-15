@@ -1,14 +1,31 @@
+@keyframes popup {
+    from {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .calendar {
     top: 200px;
     right: 270px;
     position: absolute;
     z-index: 11;
-    width: fit-content;
+    width: 330px;
     padding: 20px 40px;
     box-sizing: border-box;
     height: fit-content;
     background-color: white;
-    /* color: black; */
+    border-radius: 20px;
+    animation: popup 0.3s ease-out;
+}
+
+.calendarNone {
+    display: none;
 }
 
 .header {
@@ -18,20 +35,38 @@
     gap: 10px;
 }
 
-.header > p{
+.header>p {
     margin: 0;
     padding: 0;
     cursor: pointer;
     color: black;
 }
 
-.weekdays{
+.header>h2 {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 36px;
+    color: #23221F;
+}
+
+.weekdays {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
-.days{
+.weekdays>div {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 36px;
+    color: #FF8A00;
+}
+
+.days {
     display: grid;
     justify-content: space-between;
     justify-items: center;
@@ -39,14 +74,17 @@
     grid-template-columns: auto auto auto auto auto auto auto;
     grid-template-rows: auto auto auto auto auto;
 }
-.days > .day {
-    width: fit-content;
-    height: fit-content;
-    cursor: pointer;
-    color: black;
+
+.days>.day p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
+    color: #23221F;
 }
 
-.day:hover{
+.day:hover {
     width: 30px;
     height: 30px;
     display: flex;
@@ -68,12 +106,19 @@
     border-radius: 50%;
 }
 
-.days > .day > p{
-    margin: 0;
-    color: black;
+.active>p {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 30px;
 }
 
-.day:hover > p,
-.active > p{
+.days>.day>p {
+    margin: 0;
+}
+
+.day:hover>p,
+.active>p {
     color: white;
 }

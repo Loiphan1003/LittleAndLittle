@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { TypeTicket } from "../../types";
+import { TypeTicket, UserTicket } from "../../types";
 import { getTypeTickets } from "../../apis";
 
 
@@ -17,18 +17,22 @@ export const getAllTypeTicket = createAsyncThunk(
 
 
 type TicketSliceType = {
-    typeTickets: TypeTicket[]
+    typeTickets: TypeTicket[],
+    userTickets: UserTicket[]
 }
 
 const initialState: TicketSliceType = {
     typeTickets: [],
+    userTickets: [],
 }
 
 const ticketSlice = createSlice({
     name: 'ticket',
     initialState,
     reducers: {
-
+        addUserTickets: (state, action: { type: string, payload: UserTicket[] }) => {
+            state.userTickets = action.payload
+        }
     },
     extraReducers(builder) {
         builder.addCase(getAllTypeTicket.pending, (state, action) => {
@@ -41,5 +45,7 @@ const ticketSlice = createSlice({
     },
 
 })
+
+export const { addUserTickets } = ticketSlice.actions
 
 export default ticketSlice.reducer

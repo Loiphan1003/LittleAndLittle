@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import EventOne from '../../assets/images/event_one.svg';
 import { Button } from "../../components";
 import { useDispatch, useSelector } from "react-redux";
-import { updateValue } from "../../store/reducers/menuSlice";
+// import { updateValue } from "../../store/reducers/menuSlice";
 import { RootState } from "../../store";
 import { useNavigate } from "react-router-dom";
 
@@ -81,7 +81,7 @@ export const Event = () => {
                         <p>{item.dateStart} - {item.dateEnd}</p>
                       </div>
 
-                      <p className={styles.prize} >{item.price} VNĐ</p>
+                      <p className={styles.prize} >{item.price.toLocaleString('vi-VN')} VNĐ</p>
 
                       <div className={styles.detailBtn}>
                         <Button

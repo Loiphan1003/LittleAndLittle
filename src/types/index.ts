@@ -10,9 +10,9 @@ export type DateType = {
 }
 
 export type TicketType = {
-    type: string,
-    amount: number,
-    date: string,
+    kindTicket: string,
+    amountTicket: number,
+    dateUse: string,
     name: string,
     phone: number,
     email: string,
@@ -50,4 +50,21 @@ export interface PaymentInfo {
     name: string,
     dateExpire: string,
     cvv: string,
+}
+
+export interface UserTicket {
+    id: string,
+    type: string,
+    dateUse: string,
+    idPayer: string
+}
+
+export interface InfoTicket {
+    paymentAmount: string,
+    kindTicket: string,
+    amountTicket: number,
+    dateUse: string,
+    name: string,
+    phone: number,
+    email: string,
 }

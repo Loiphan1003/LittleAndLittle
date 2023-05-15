@@ -24,7 +24,7 @@ export const Dropdown = (props: DropdownType) => {
                             key={item.id} 
                             onClick={() => props.onClick(item)}
                         >
-                            {item.name}
+                            <p>{item.name}</p>
                         </div>
                     )
                 })}

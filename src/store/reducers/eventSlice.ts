@@ -1,23 +1,31 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { getAllEvent } from "../../apis";
+// import { getAllEvent } from "../../apis";
 import { EventType } from "../../types";
+import {db} from '../../config/firebase';
+import { getAllValueInOneColection } from "../../config/firebase/firestore";
+import { Result } from "antd";
 
-export const getAllEvents = createAsyncThunk(
-    'event/getAllEvent',
-    async () => {
-        try {
-            const response = await getAllEvent();
-            return response;
-        } catch (error) {
-            return;
-        }
-    }
-);
+
+
 
 
 type EventState = {
     events: EventType[]
 }
+
+
+export const getAllEvents = createAsyncThunk(
+    'event/getAllEvent',
+    async () => {
+        try {
+            const events = await getAllValueInOneColection(db, 'events');
+            return events as EventType[];
+        } catch (error: any) {
+            return [];
+        }
+    }
+)
+
 
 const initialState: EventState = {
     events: [],

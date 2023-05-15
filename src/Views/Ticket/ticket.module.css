@@ -10,7 +10,7 @@
     align-items: center;
 }
 
-.ticketContainer> .group {
+.ticketContainer>.group {
     width: 80%;
     height: 65%;
     padding: 10px;
@@ -18,17 +18,9 @@
     background-color: #FDE8B3;
     border-radius: 20px;
     box-shadow: 0px 12px 1px #FFCA7B;
-    /* background-image: url('../../assets/images/khungChua.svg');
-    background-repeat: no-repeat;
-    background-size: contain;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    align-items: center;
-    justify-content: space-between; */
 }
 
-.group > .border {
+.group>.border {
     border: dashed #FFB489;
     background-color: #FFF6D4;
     border-radius: 20px;
@@ -51,14 +43,14 @@
     background-size: contain;
 }
 
-.content{
+.content {
     padding-top: 5px;
     box-sizing: border-box;
     width: 90%;
     height: 100%;
 }
 
-.listTicket{
+.listTicket {
     width: 100%;
     height: 90%;
 }
@@ -69,7 +61,8 @@
     flex-direction: row;
     justify-content: space-between;
 }
-.amountTicket > p {
+
+.amountTicket>p {
     margin: 0;
     font-family: 'Montserrat';
     font-style: normal;
@@ -82,15 +75,7 @@
 }
 
 .cardTicket {
-
     text-align: center;
-
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    /* width: 200px;
-    height: 275px; */
     border-radius: 16px;
     padding: 10px;
     box-sizing: border-box;
@@ -110,6 +95,9 @@
     font-weight: 700;
     font-size: 22px;
     line-height: 39px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .typeTicket {
@@ -154,7 +142,7 @@
     background-size: contain;
 }
 
-.btn{
+.btn {
     display: flex;
     gap: 20px;
     margin-top: 26px;
@@ -162,7 +150,8 @@
     justify-content: center;
     align-items: center;
 }
-.btn > div {
+
+.btn>div {
     height: 40px;
     width: 160px;
 }
@@ -176,7 +165,7 @@
     left: -68px;
 }
 
-.slider{
+.slider {
     width: 100%;
     height: 100%;
 }

@@ -46,9 +46,6 @@ p {
         height: 42px;
         border: 2px solid #FFFFFF;
         border-radius: 33px;
-        /* flex: none; */
-        /* order: 0; */
-        /* flex-grow: 0; */
     }
 
     .active>p {
@@ -61,9 +58,6 @@ p {
         font-size: 18px;
         line-height: 22px;
         color: #FFFFFF;
-        /* flex: none; */
-        /* order: 0; */
-        /* flex-grow: 0; */
     }
 
     .normal {
@@ -76,9 +70,6 @@ p {
         height: 42px;
         opacity: 0.8;
         border-radius: 33px;
-        /* flex: none; */
-        /* order: 1; */
-        /* flex-grow: 0; */
     }
 
     .normal>p {
@@ -91,8 +82,5 @@ p {
         font-size: 18px;
         line-height: 22px;
         color: #FFFFFF;
-        /* flex: none; */
-        /* order: 0; */
-        /* flex-grow: 0; */
     }
 }
